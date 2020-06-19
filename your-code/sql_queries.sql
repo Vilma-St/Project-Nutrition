@@ -12,11 +12,28 @@ Carbohydrates NUMERIC(5, 2),
 Sugars  NUMERIC(5, 2), 
 Fibre NUMERIC(5, 2), 
 Salt NUMERIC(5, 2), 
-Country VARCHAR(15)
+Type VARCHAR(10), 
+VeggieScore NUMERIC(5),
+FruitScore NUMERIC(5)
 );
-
-DESCRIBE recipes;
 
 SELECT * FROM recipes;
 
--- DROP TABLE recipes;
+ALTER TABLE recipes
+RENAME COLUMN MyUnknownColumn TO ID;
+
+SELECT * FROM recipes
+WHERE SaturatedFat > 20;
+
+SELECT * FROM recipes
+WHERE Fibre> 15;
+
+SELECT * FROM recipes
+WHERE Ingredients LIKE "%almond%" AND Fat < 10
+ORDER BY Sugars DESC;
+
+SELECT * FROM recipes
+ORDER BY Sugars DESC
+LIMIT 10;
+
+-- DROP TABLE recipes;-- 
